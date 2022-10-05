@@ -1,0 +1,12 @@
+version: '2'
+services:
+  postgresql:
+    image: postgres:13.4
+    volumes:
+      - ./docker_postgres_init.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
+    environment:
+      - POSTGRES_DB=springSecurityDemoDB
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+    ports:
+      - "5432:5432"
